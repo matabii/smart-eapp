@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MY_APP_NAME</string>
+    <string name="photo_show_index">目次を表示</string>
+    <string name="photo_move_top">先頭ページへ移動</string>
+    <string name="catalog_zoom">拡大表示</string>
+    <string name="right">right</string>
+    <string name="left">left</string>
+    <string name="noimage">noimage</string>
+    <string name="powerdby">Powerd By</string>
+
+</resources>

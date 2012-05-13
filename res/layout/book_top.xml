@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000" >
+
+    <TextView
+        android:id="@+id_book_top/title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/title_bar"
+        android:gravity="center"
+        android:textColor="@color/title_color"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:id="@+id_book_top/top"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id_book_top/title_bar"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/noimage"
+        android:scaleType="fitCenter" />
+
+</RelativeLayout>

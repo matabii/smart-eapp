@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/default_back_color" >
+
+    <TextView
+        android:id="@+id_book_list_view/title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/title_bar"
+        android:gravity="center"
+        android:textColor="@color/title_color"
+        android:textSize="20dp" />
+
+    <LinearLayout
+        android:id="@+id_book_list_view/bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/title_bar"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="@string/powerdby"
+            android:textColor="@color/title_color"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/smart_e_app"
+            android:contentDescription="@string/noimage" />
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id_book_list_view/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id_book_list_view/bottom"
+        android:layout_below="@id_book_list_view/title_bar"
+        android:background="@color/default_back_color"
+        android:gravity="center"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="8dp" />
+
+</RelativeLayout>

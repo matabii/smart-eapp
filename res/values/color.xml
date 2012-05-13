@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="default_color">#000000</color>
+    <color name="default_back_color">#FFFFFF</color>
+    <color name="title_color">#EFEFEF</color>
+    <color name="active_color">#FFA500</color>
+    <color name="list_grad_start_color">#63C1F8</color>
+    <color name="list_grad_end_color">#4488E4</color>
+    <color name="title_bar_start_color">#356AB2</color>
+    <color name="title_bar_end_color">#264C7F</color>
+    <color name="photo_transparent_title">#33333399</color>
+
+</resources>
