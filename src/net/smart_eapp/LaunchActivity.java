@@ -32,7 +32,7 @@ public class LaunchActivity extends Activity {
 			if (books.size() <= 0) {
 				Toast.makeText(mContext, "not found book file.", Toast.LENGTH_LONG).show();
 			} else if (books.size() == 1) {
-				BookStarter.start(mContext, books.get(0).fileName);
+				BookStarter.start(mContext, books.get(0));
 				finish();
 			} else {
 				Intent intent = new Intent(mContext, BookListActivity.class);

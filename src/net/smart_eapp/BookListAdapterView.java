@@ -52,7 +52,7 @@ public class BookListAdapterView extends BaseAdapter {
 			TextView text = (TextView) v.findViewById(R.id_book_list_adapter_view.text);
 			ImageView image = (ImageView) v.findViewById(R.id_book_list_adapter_view.image);
 			try {
-				BookReader book = new ZipBookReader(mContext, ((BookFile)(getItem(position))).fileName );
+				BookReader book = new ZipBookReader(mContext, ((BookFile) (getItem(position))));
 				text.setText(book.getBookTitle());
 				Bitmap bm = BitmapFactory.decodeStream(book.getBookIcon());
 				image.setImageBitmap(bm);

@@ -28,7 +28,7 @@ public class BookListActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				BookFile selectFile = (BookFile) adapter.getItem(position);
-				BookStarter.start(BookListActivity.this, selectFile.fileName);
+				BookStarter.start(BookListActivity.this, selectFile);
 			}
 		});
 		View bottom = findViewById(R.id_book_list_view.bottom);

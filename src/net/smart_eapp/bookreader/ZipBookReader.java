@@ -10,6 +10,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 import net.smart_eapp.Util;
+import net.smart_eapp.Util.BookFile;
 
 import android.content.Context;
 
@@ -17,17 +18,17 @@ public class ZipBookReader extends BookReader {
 
 	public ZipFile mBookZipFile;
 
-	public void init(Context context, String name) {
+	public void init(Context context, BookFile book) {
 		try {
-			mBookZipFile = new ZipFile(new File(Util.getBookDir(context), name));
+			mBookZipFile = new ZipFile(new File(Util.getBookDir(context), book.fileName));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		super.init(context, name);
+		super.init(context, book);
 	}
 
-	public ZipBookReader(Context context, String name) {
-		super(context, name);
+	public ZipBookReader(Context context, BookFile book) {
+		super(context, book);
 	}
 
 	@Override

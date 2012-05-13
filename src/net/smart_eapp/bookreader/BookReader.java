@@ -4,23 +4,25 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.Properties;
 
+import net.smart_eapp.Util.BookFile;
+
 import android.content.Context;
 import android.os.Environment;
 
 public abstract class BookReader {
 	public Properties mProperties;
-	public String name;
+	public BookFile mBook;
 	private Context mContext;
 
-	public BookReader(Context context, String name) {
+	public BookReader(Context context, BookFile book) {
 		this.mContext = context;
-		this.name = name;
-		this.init(context, name);
+		this.mBook = book;
+		this.init(context, mBook);
 	}
 
-	public void init(Context context, String name) {
+	public void init(Context context, BookFile book) {
 		this.mContext = context;
-		this.name = name;
+		this.mBook = book;
 		this.mProperties = this.loadProperties();
 	}
 
