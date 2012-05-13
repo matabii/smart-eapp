@@ -20,7 +20,7 @@ public class LaunchActivity extends Activity {
 		setContentView(R.layout.launch_activity);
 		this.mContext = this;
 		Handler handler = new Handler();
-		handler.postDelayed(new StartHandler(), 1000);
+		handler.postDelayed(new StartHandler(), 500);
 	}
 
 	class StartHandler implements Runnable {
@@ -38,6 +38,7 @@ public class LaunchActivity extends Activity {
 				Intent intent = new Intent(mContext, BookListActivity.class);
 				startActivity(intent);
 				finish();
+				overridePendingTransition(R.anim.splash_open, R.anim.splash_close);
 			}
 		}
 	}
