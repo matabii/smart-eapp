@@ -20,14 +20,25 @@ public class Util {
 		return bookDir;
 	}
 
-	static public File getBookFile(Context context, String zipFileName) {
-		File rootDir = Environment.getExternalStorageDirectory();
-		File bookDir = new File(rootDir, "/Android/data/" + context.getPackageName() + "/files/");
-		bookDir.mkdirs();
-		File book = new File(bookDir, zipFileName);
-		return book;
+	static public BookFile getBookFileById(Context context, String fileId) {
+		ArrayList<BookFile> books = getBooks(context);
+		Iterator<BookFile> it = books.iterator();
+		while (it.hasNext()) {
+			BookFile book = it.next();
+			if (book.fileId.equals(fileId)) {
+				return book;
+			}
+		}
+		return null;
 	}
 
+	/*
+	 * static public File getBookFile(Context context, String zipFileName) {
+	 * File rootDir = Environment.getExternalStorageDirectory(); File bookDir =
+	 * new File(rootDir, "/Android/data/" + context.getPackageName() +
+	 * "/files/"); bookDir.mkdirs(); File book = new File(bookDir, zipFileName);
+	 * return book; }
+	 */
 	static public ArrayList<BookFile> getBooks(Context context) {
 		ArrayList<BookFile> array = new ArrayList<Util.BookFile>();
 		File sdDir = getBookDir(context);
@@ -43,19 +54,21 @@ public class Util {
 			file.category2 = fileNames[2];
 			file.date = fileNames[3];
 			file.fileName = files[i];
+			file.realFile = new File(getBookDir(context), files[i]);
 			array.add(file);
 		}
 		return array;
 	}
 
-	static private void saveBook(Context context, InputStream is, String fileName) {
+	static private void saveBookFile(Context context, InputStream is, String fileId, String fileName) {
 		try {
 			BufferedInputStream bis = new BufferedInputStream(is);
-			File saveFile = getBookFile(context, fileName);
-			if (saveFile.exists()) {
-				saveFile.delete();
+			BookFile existBookFile = getBookFileById(context, fileId);
+			if (existBookFile != null) {
+				existBookFile.realFile.delete();
 			}
-			FileOutputStream fos = new FileOutputStream(saveFile);
+			File newBookFile = new File(getBookDir(context), fileName);
+			FileOutputStream fos = new FileOutputStream(newBookFile);
 			byte[] buf = new byte[1024];
 			while ((bis.read(buf)) != -1) {
 				fos.write(buf);
@@ -66,10 +79,11 @@ public class Util {
 		}
 	}
 
-	static private void deleteBook(Context context, String fileName) {
-		File deleteFile = getBookFile(context, fileName);
-		if (deleteFile.exists()) {
-			deleteFile.delete();
+	static private void deleteBook(Context context, String fileId) {
+		BookFile deleteFile = getBookFileById(context, fileId);
+		File file = new File(getBookDir(context), deleteFile.fileName);
+		if (file.exists()) {
+			file.delete();
 		}
 	}
 
@@ -94,16 +108,16 @@ public class Util {
 						isMatch = true;
 						if (book.date.compareTo(zipNames[3]) < 0) {
 							// 上書きする
-							deleteBook(context, book.fileName);
+							deleteBook(context, book.fileId);
 							InputStream is = context.getAssets().open("books/" + files[i]);
-							saveBook(context, is, files[i]);
+							saveBookFile(context, is, zipNames[0], files[i]);
 						}
 						break;
 					}
 				}
 				if (isMatch == false) {
 					InputStream is = context.getAssets().open("books/" + files[i]);
-					saveBook(context, is, files[i]);
+					saveBookFile(context, is, zipNames[0], files[i]);
 				}
 			}
 		} catch (Exception e) {
@@ -118,5 +132,6 @@ public class Util {
 		public String category2;
 		public String date;
 		public String fileName;
+		public File realFile;
 	}
 }
