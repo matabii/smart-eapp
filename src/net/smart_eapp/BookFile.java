@@ -9,7 +9,13 @@ import java.util.Iterator;
 import android.content.Context;
 import android.os.Environment;
 
-public class Util {
+public class BookFile {
+	public String fileId;
+	public String category1;
+	public String category2;
+	public String date;
+	public String fileName;
+	public File realFile;
 
 	static public File getBookDir(Context context) {
 		File rootDir = Environment.getExternalStorageDirectory();
@@ -32,15 +38,8 @@ public class Util {
 		return null;
 	}
 
-	/*
-	 * static public File getBookFile(Context context, String zipFileName) {
-	 * File rootDir = Environment.getExternalStorageDirectory(); File bookDir =
-	 * new File(rootDir, "/Android/data/" + context.getPackageName() +
-	 * "/files/"); bookDir.mkdirs(); File book = new File(bookDir, zipFileName);
-	 * return book; }
-	 */
 	static public ArrayList<BookFile> getBooks(Context context) {
-		ArrayList<BookFile> array = new ArrayList<Util.BookFile>();
+		ArrayList<BookFile> array = new ArrayList<BookFile>();
 		File sdDir = getBookDir(context);
 		String[] files = sdDir.list();
 		for (int i = 0; i < files.length; i++) {
@@ -124,14 +123,5 @@ public class Util {
 			e.printStackTrace();
 		}
 
-	}
-
-	public static class BookFile {
-		public String fileId;
-		public String category1;
-		public String category2;
-		public String date;
-		public String fileName;
-		public File realFile;
 	}
 }

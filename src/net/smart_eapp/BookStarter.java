@@ -1,6 +1,5 @@
 package net.smart_eapp;
 
-import net.smart_eapp.Util.BookFile;
 import net.smart_eapp.bookreader.BookReader;
 import net.smart_eapp.bookreader.ZipBookReader;
 import net.smart_eapp.catalog.BookTop;

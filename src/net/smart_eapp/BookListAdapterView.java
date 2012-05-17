@@ -3,7 +3,6 @@ package net.smart_eapp;
 import java.util.ArrayList;
 
 import net.smart_eapp.R;
-import net.smart_eapp.Util.BookFile;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -26,7 +25,7 @@ public class BookListAdapterView extends BaseAdapter {
 	public BookListAdapterView(Context context) {
 		mContext = context;
 		mInflater = LayoutInflater.from(context);
-		books = Util.getBooks(mContext);
+		books = BookFile.getBooks(mContext);
 	}
 
 	@Override

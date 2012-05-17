@@ -1,7 +1,6 @@
 package net.smart_eapp;
 
 import net.smart_eapp.R;
-import net.smart_eapp.Util.BookFile;
 
 import android.app.Activity;
 import android.content.Intent;

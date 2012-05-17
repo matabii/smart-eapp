@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.Properties;
 
-import net.smart_eapp.Util.BookFile;
-
+import net.smart_eapp.BookFile;
 import android.content.Context;
 import android.os.Environment;
 

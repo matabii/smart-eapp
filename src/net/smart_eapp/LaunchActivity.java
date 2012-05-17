@@ -2,8 +2,6 @@ package net.smart_eapp;
 
 import java.util.ArrayList;
 
-import net.smart_eapp.Util.BookFile;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -27,8 +25,8 @@ public class LaunchActivity extends Activity {
 
 		@Override
 		public void run() {
-			Util.copyFile(mContext);
-			ArrayList<BookFile> books = Util.getBooks(mContext);
+			BookFile.copyFile(mContext);
+			ArrayList<BookFile> books = BookFile.getBooks(mContext);
 			if (books.size() <= 0) {
 				Toast.makeText(mContext, "not found book file.", Toast.LENGTH_LONG).show();
 			} else if (books.size() == 1) {

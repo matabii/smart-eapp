@@ -9,9 +9,7 @@ import java.util.Properties;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import net.smart_eapp.Util;
-import net.smart_eapp.Util.BookFile;
-
+import net.smart_eapp.BookFile;
 import android.content.Context;
 
 public class ZipBookReader extends BookReader {
@@ -20,7 +18,7 @@ public class ZipBookReader extends BookReader {
 
 	public void init(Context context, BookFile book) {
 		try {
-			mBookZipFile = new ZipFile(new File(Util.getBookDir(context), book.fileName));
+			mBookZipFile = new ZipFile(new File(BookFile.getBookDir(context), book.fileName));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
