@@ -25,7 +25,7 @@ public class BookListAdapterView extends BaseAdapter {
 	public BookListAdapterView(Context context) {
 		mContext = context;
 		mInflater = LayoutInflater.from(context);
-		books = BookFile.getBooks(mContext);
+		books = BookFile.getBookFiles(mContext);
 	}
 
 	@Override

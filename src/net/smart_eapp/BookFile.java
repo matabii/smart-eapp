@@ -26,8 +26,8 @@ public class BookFile {
 		return bookDir;
 	}
 
-	static public BookFile getBookFileById(Context context, String fileId) {
-		ArrayList<BookFile> books = getBooks(context);
+	static public BookFile getBookFile(Context context, String fileId) {
+		ArrayList<BookFile> books = getBookFiles(context);
 		Iterator<BookFile> it = books.iterator();
 		while (it.hasNext()) {
 			BookFile book = it.next();
@@ -38,7 +38,7 @@ public class BookFile {
 		return null;
 	}
 
-	static public ArrayList<BookFile> getBooks(Context context) {
+	static public ArrayList<BookFile> getBookFiles(Context context) {
 		ArrayList<BookFile> array = new ArrayList<BookFile>();
 		File sdDir = getBookDir(context);
 		String[] files = sdDir.list();
@@ -62,7 +62,7 @@ public class BookFile {
 	static private void saveBookFile(Context context, InputStream is, String fileId, String fileName) {
 		try {
 			BufferedInputStream bis = new BufferedInputStream(is);
-			BookFile existBookFile = getBookFileById(context, fileId);
+			BookFile existBookFile = getBookFile(context, fileId);
 			if (existBookFile != null) {
 				existBookFile.realFile.delete();
 			}
@@ -78,8 +78,8 @@ public class BookFile {
 		}
 	}
 
-	static private void deleteBook(Context context, String fileId) {
-		BookFile deleteFile = getBookFileById(context, fileId);
+	static private void deleteBookFile(Context context, String fileId) {
+		BookFile deleteFile = getBookFile(context, fileId);
 		File file = new File(getBookDir(context), deleteFile.fileName);
 		if (file.exists()) {
 			file.delete();
@@ -92,9 +92,9 @@ public class BookFile {
 	 * 
 	 * @param context
 	 */
-	static public void copyFile(Context context) {
+	static public void copyBookFile(Context context) {
 		try {
-			ArrayList<BookFile> bookList = getBooks(context);
+			ArrayList<BookFile> bookList = getBookFiles(context);
 			String[] files = context.getAssets().list("books");
 			for (int i = 0; i < files.length; i++) {
 				// id_yyyymmddhhmmss
@@ -107,7 +107,7 @@ public class BookFile {
 						isMatch = true;
 						if (book.date.compareTo(zipNames[3]) < 0) {
 							// 上書きする
-							deleteBook(context, book.fileId);
+							deleteBookFile(context, book.fileId);
 							InputStream is = context.getAssets().open("books/" + files[i]);
 							saveBookFile(context, is, zipNames[0], files[i]);
 						}

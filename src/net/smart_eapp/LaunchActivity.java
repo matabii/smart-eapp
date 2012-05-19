@@ -25,8 +25,8 @@ public class LaunchActivity extends Activity {
 
 		@Override
 		public void run() {
-			BookFile.copyFile(mContext);
-			ArrayList<BookFile> books = BookFile.getBooks(mContext);
+			BookFile.copyBookFile(mContext);
+			ArrayList<BookFile> books = BookFile.getBookFiles(mContext);
 			if (books.size() <= 0) {
 				Toast.makeText(mContext, "not found book file.", Toast.LENGTH_LONG).show();
 			} else if (books.size() == 1) {
