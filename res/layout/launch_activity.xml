@@ -6,7 +6,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:adjustViewBounds="true"
-        android:background="@color/default_back_color"
+        android:background="@color/launch_activity_back_color"
         android:contentDescription="@string/noimage"
         android:scaleType="fitCenter"
         android:src="@drawable/splash" />
