@@ -32,6 +32,7 @@ public class LaunchActivity extends Activity {
 			} else if (books.size() == 1) {
 				BookStarter.start(mContext, books.get(0));
 				finish();
+				overridePendingTransition(R.anim.splash_open, R.anim.splash_close);
 			} else {
 				Intent intent = new Intent(mContext, BookListActivity.class);
 				startActivity(intent);
