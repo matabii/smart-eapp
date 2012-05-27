@@ -6,3 +6,8 @@ smart-eapp とは Android向けの写真集アプリ等、シンプルなアプ�
 [smart-eapp を利用して作成したサンプルアプリ](https://play.google.com/store/apps/details?id=net.smart_eapp.android.sample)(Playストアへ)
 
 [詳しいドキュメントはこちら](http://docs.smart-eapp.net/)
+
+
+アプリのカスタマイズや相談が有る場合、私にメールしてください。
+
+matabii@gmail.com
