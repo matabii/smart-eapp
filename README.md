@@ -7,7 +7,4 @@ smart-eapp とは Android向けの写真集アプリ等、シンプルなアプ�
 
 [詳しいドキュメントはこちら](http://docs.smart-eapp.net/)
 
-
-アプリのカスタマイズや相談が有る場合、私にメールしてください。
-
 matabii@gmail.com
